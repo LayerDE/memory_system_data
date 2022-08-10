@@ -17,6 +17,7 @@ void c_data_spawn_ptr(c_data* in){
 void c_data_set_size(c_data* in, const unsigned int size){
     if(in->content != NULL){
         free(in->content);
+        in->content = NULL;
     }
     if(size != 0){
         in->content = malloc(size);
@@ -25,9 +26,7 @@ void c_data_set_size(c_data* in, const unsigned int size){
 }
 
 void c_data_resize(c_data* in, const unsigned int size){
-    if(size == 0)
-        return;
-    if(in->content == NULL || in->size == 0){
+    if(in->content == NULL || in->size == 0 || size == 0){
         c_data_set_size(in, size);
         return;
     }
