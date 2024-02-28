@@ -68,3 +68,7 @@ void c_data_extend_raw(c_data* in, const void* content, const unsigned int size)
 void c_data_extend(c_data* in, const c_data* adding){
     c_data_extend_raw(in,adding->content,adding->size);
 }
+
+void c_data_clean(c_data* in){
+    memset(in->content, 0, in->size);
+}

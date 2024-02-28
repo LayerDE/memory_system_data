@@ -59,3 +59,7 @@ void data::out_c_data(c_data* in){
     c_data_set(in, content.content, content.size);
 }
 
+void data::clean_data(){
+    c_data_clean(&content);
+}
+

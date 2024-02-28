@@ -21,6 +21,7 @@ class data{
         void add_data(data* in);
         void add_data(const uint8_t* hData,unsigned int lenght);
         void out_c_data(c_data* in);
+        void clean_data();
     protected:
         c_data content;
     private:

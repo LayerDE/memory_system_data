@@ -15,6 +15,7 @@ void c_data_delete(c_data in);
 void c_data_delete_ptr(c_data* in);
 void c_data_extend_raw(c_data* in, const void* content, const unsigned int size);
 void c_data_extend(c_data* in, const c_data* adding);
+void c_data_clean(c_data* in);
 #ifdef __cplusplus
 }
 #endif
