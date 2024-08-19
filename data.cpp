@@ -12,7 +12,7 @@ data::data(unsigned int lenght){
     c_data_set_size(&content,lenght);
     printf("created data len=%u: %u\n",content.size,id);
 }
-data::data(const uint8_t* hData,unsigned int lenght) : data(lenght){
+data::data(const void* hData,unsigned int lenght) : data(lenght){
     set_data(hData,lenght);
 }
 data::data(data* in) : data(in->get_lenght()){
@@ -36,18 +36,18 @@ unsigned int data::get_lenght(){
 void data::set_lenght(unsigned int hLenght){
     c_data_set_size(&content,hLenght);
 }
-void data::add_data(const uint8_t* hData,unsigned int lenght){
+void data::add_data(const void* hData,unsigned int lenght){
     printf("in add_data: len=%i add_len=%i: %u\n",content.size,lenght, id);
     c_data_extend_raw(&content,hData,lenght);
 }
 void data::add_data(data* in){
     add_data(in->get_data(),in->get_lenght());
 }
-const uint8_t* data::get_data(){
-    return (uint8_t*)content.content;
+const void* data::get_data(){
+    return content.content;
 }   
 
-void data::set_data(const uint8_t* data,unsigned int lenght){
+void data::set_data(const void* data,unsigned int lenght){
     c_data_set(&content,data,lenght);
 }
 
